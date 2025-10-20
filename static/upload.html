@@ -1,0 +1,26 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Upload CV - Neuronix</title><link rel="stylesheet" href="css/style.css"></head><body>
+<div class="container">
+ <div class="header"><div class="logo">Neuronix AI Solutions</div><div class="nav"><a href="index.html">Home</a> <a href="services.html">Services</a></div></div>
+ <div class="card">
+   <h2>Upload CV (PDF / DOCX)</h2>
+   <input type="file" id="cvfile" accept=".pdf,.docx" />
+   <button class="btn" onclick="onUpload()">Upload & Recommend</button>
+ </div>
+ <div id="results" class="card"></div>
+ <div class="footer">Developed by Neuronix AI Solutions © 2025</div>
+</div>
+<script src="js/app.js"></script>
+<script>
+async function onUpload(){
+  const f = document.getElementById('cvfile').files[0];
+  if(!f){ alert("Choose a file"); return; }
+  try {
+    const json = await uploadCV(f);
+    renderResults(json.results, "results");
+  } catch(err){
+    document.getElementById('results').innerHTML = "<div class='card'>Error: " + err.message + "</div>";
+  }
+}
+</script>
+</body></html>

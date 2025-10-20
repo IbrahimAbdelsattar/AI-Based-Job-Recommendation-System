@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+.env
+data/jobs_index.faiss
+data/job_ids.npy
+data/JobsFE.csv

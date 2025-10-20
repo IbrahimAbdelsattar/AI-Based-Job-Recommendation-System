@@ -1,0 +1,25 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Chat Mode - Neuronix</title><link rel="stylesheet" href="css/style.css"></head><body>
+<div class="container">
+ <div class="header"><div class="logo">Neuronix AI Solutions</div><div class="nav"><a href="index.html">Home</a> <a href="services.html">Services</a></div></div>
+ <div class="card">
+   <h2>Chat Mode</h2>
+   <textarea id="chatText" class="input" placeholder="I am a data analyst with 2 years in Python..."></textarea>
+   <button class="btn" onclick="onChat()">Get Recommendations</button>
+ </div>
+ <div id="results" class="card"></div>
+ <div class="footer">Developed by Neuronix AI Solutions © 2025</div>
+</div>
+<script src="js/app.js"></script>
+<script>
+async function onChat(){
+  const text = document.getElementById('chatText').value;
+  try {
+    const json = await postChat(text);
+    renderResults(json.results, "results");
+  } catch(err){
+    document.getElementById('results').innerHTML = "<div class='card'>Error: " + err.message + "</div>";
+  }
+}
+</script>
+</body></html>

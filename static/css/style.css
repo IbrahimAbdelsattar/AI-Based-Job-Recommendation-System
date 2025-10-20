@@ -1,0 +1,17 @@
+:root{
+  --primary:#2563eb;
+  --bg:#f7f9fc;
+  --card:#ffffff;
+  --muted:#6b7280;
+}
+body{font-family:Inter, Arial, sans-serif;background:var(--bg);margin:0;padding:0;color:#111}
+.container{max-width:1000px;margin:24px auto;padding:20px}
+.header{display:flex;justify-content:space-between;align-items:center;padding:10px 0}
+.logo{font-weight:700;color:var(--primary);font-size:20px}
+.nav a{margin-left:14px;color:#333;text-decoration:none}
+.card{background:var(--card);padding:16px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.05);margin-bottom:16px}
+.btn{background:var(--primary);color:#fff;padding:8px 12px;border-radius:6px;border:none;cursor:pointer}
+.input, textarea, select{width:100%;padding:8px;border-radius:6px;border:1px solid #e5e7eb;margin-top:8px}
+.job-card{border-left:4px solid var(--primary);padding:12px;margin-bottom:12px;background:#fff;border-radius:6px}
+.small{font-size:13px;color:var(--muted)}
+.footer{margin-top:40px;padding:12px;text-align:center;color:var(--muted)}

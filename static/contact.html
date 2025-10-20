@@ -1,0 +1,35 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Contact - Neuronix</title><link rel="stylesheet" href="css/style.css"></head><body>
+<div class="container">
+ <div class="header"><div class="logo">Neuronix AI Solutions</div><div class="nav"><a href="index.html">Home</a> <a href="services.html">Services</a></div></div>
+ <div class="card">
+   <h2>Contact Us</h2>
+   <label>Name</label><input id="cname" class="input" />
+   <label>Email</label><input id="cemail" class="input" />
+   <label>Subject</label><input id="csubject" class="input" />
+   <label>Message</label><textarea id="cmessage" class="input"></textarea>
+   <button class="btn" onclick="onContact()">Send</button>
+ </div>
+ <div id="cresult"></div>
+ <div class="footer">Developed by Neuronix AI Solutions © 2025</div>
+</div>
+<script>
+function onContact(){
+  const data = {
+    name: document.getElementById('cname').value,
+    email: document.getElementById('cemail').value,
+    subject: document.getElementById('csubject').value,
+    message: document.getElementById('cmessage').value
+  };
+  // Option A: send to Google Form via form POST (you will replace FORM_URL)
+  const FORM_URL = ""; // put your Google Form POST URL here or use Apps Script endpoint
+  if(!FORM_URL){
+    document.getElementById('cresult').innerHTML = "<div class='card'>Contact form not configured. Configure FORM_URL in contact.html</div>";
+    return;
+  }
+  fetch(FORM_URL, {method:"POST", body: JSON.stringify(data)})
+    .then(r => { document.getElementById('cresult').innerHTML = "<div class='card'>Thank you — we received your message.</div>"; })
+    .catch(e => { document.getElementById('cresult').innerHTML = "<div class='card'>Error sending form.</div>"; })
+}
+</script>
+</body></html>
